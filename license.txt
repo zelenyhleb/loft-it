@@ -1,0 +1,6 @@
+Any piece of content in this repository 
+(source code, configuration files, documentation, images, any other) 
+is available under terms and restrictions of ArSysOp Source License (ArSysOpSourceLicense-1.0.txt).
+
+Content of this repository is publicly available 
+for informational, review, analysis and consulting purposes.

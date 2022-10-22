@@ -1,0 +1,47 @@
+ArSysOp RGM Source License
+Version 1.0
+March 2022
+
+DEFINITIONS
+For the purposes of this license following definitions must stand:
+1. RGM must stand for Requirement Gathering and Markup Library developed by ArSysOp 
+   in scope of Language-Oriented Frameworks and Tools project.
+2. RGM Sources must stand for either resident or cloned or copied or gained otherwise
+   source code, documentation, configuration files, 
+   art work (images, styles, fonts, etc) and any other content of RGM source base 
+   (this repository), partially or as a whole, 
+   except for third-party license agreements available in 
+   bundles/ru.arsysop.loft.rgm/licenses folder.
+   
+This license defines terms and restrictions for using RGM Sources. 
+If you (as an individual or Legal Entity) are not agree, partially or entirely, 
+with these terms and/or not intended to respect and follow, partially or entirely, 
+these restrictions, you cannot use RGM Sources.
+
+COPYRIGHT
+RGM Sources, including this agreement, are property of ArSysOp. 
+
+GRANTS
+RGM Sources are publicly available only for informational, review, analysis 
+and consulting purposes.
+ArSysOp hereby grants you (as an individual or Legal Entity) the right to 
+   (1) read and review RGM sources, 
+   (2) run any sort of code, architecture, vulnerability analysis, including automatic,
+   (3) publish results of such analysis with mandatory reference to this repository
+   and ArSysOp (arsysop.ru).
+
+RESTRICTIONS
+You (as an individual or Legal Entity) 
+   (1) may NOT modify, replenish or diminish RGM Sources,
+   (2) may NOT include RGM Sources to any product or project,
+   (3) may NOT produce binaries from or with RGM Sources.
+   (4) may NOT translate RGM Sources to any other language.
+
+DISCLAIMER
+For the purposes stated above RGM Sources are provided on "as is" basis. 
+ArSysOp takes no obligation to satisfy any request regarding RGM Sources, 
+theirs availability, quality, security, safety or any other characteristic whatsoever.
+ArSysOp is not responsible for any damages, losses, legal prosecution 
+or other consequences of any sort that using RGM Sources can cause to you 
+(as an individual or Legal Entity), even if aware of such consequences.
+   
