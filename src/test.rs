@@ -37,15 +37,24 @@ pub fn create_test(section: Section, template: &TestConfiguration) {
         return;
     }
     let content = content(&section, template);
-    let file_name = file_name(section, template);
-    println!("{}", &file_name.as_path().display());
-    let mut file = File::create(file_name).unwrap();
+    let file_name = class_name(&section);
+    write_file(template, file_name, content);
+}
+
+pub fn create_base(template: &TestConfiguration) {
+    let content = base_test(template);
+    let name = String::from("CxxIntegrityTest");
+    write_file(template, name, content);
+}
+
+fn write_file(template: &TestConfiguration, name: String, content: String) {
+    let mut file = File::create(file_path(name, template)).unwrap();
     file.write_all(content.as_bytes()).unwrap();
 }
 
-fn file_name(section: Section, template: &TestConfiguration) -> PathBuf {
+fn file_path(name: String, template: &TestConfiguration) -> PathBuf {
     let dir = &template.directory;
-    Path::new(dir).join(class_name(&section).to_owned() + ".java".trim_end())
+    Path::new(dir).join(name + ".java".trim_end())
 }
 
 fn class_name(section: &Section) -> String {
@@ -80,7 +89,7 @@ fn single_test(section: &Section) -> String {
     }
 }
 
-pub fn base_test(template: &TestConfiguration) -> String {
+fn base_test(template: &TestConfiguration) -> String {
     format!("/*******************************************************************************
 * Copyright (c) ArSysOp 2018-2022
 * 
@@ -98,13 +107,14 @@ pub fn base_test(template: &TestConfiguration) -> String {
 *******************************************************************************/
 package {};
 
+import static org.junit.Assert.fail;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.junit.BeforeClass;
 
 import ru.arsysop.loft.rgm.cxxdraft.ResolutionContext;
 import ru.arsysop.loft.rgm.cxxdraft.base.PublishedHtml;

@@ -19,7 +19,7 @@ use clap::Parser;
 use html_parser::Dom;
 use loft_it::{
     parse::parse,
-    test::{create_test, TestConfiguration, base_test},
+    test::{create_base, create_test, TestConfiguration},
 };
 
 #[derive(Parser)]
@@ -42,7 +42,7 @@ async fn main() {
     let result = Dom::parse(body.unwrap().as_str()).and_then(|dom| Ok(parse(dom).unwrap()));
     match result {
         Ok(result) => {
-            base_test(&configuration);
+            create_base(&configuration);
             result
                 .into_iter()
                 .for_each(|section| create_test(section, &configuration));

@@ -1,17 +1,17 @@
 /*******************************************************************************
  * Copyright (c) ArSysOp 2018-2022
- * 
- * RGM Sources are publicly available only for 
+ *
+ * RGM Sources are publicly available only for
  * informational, review, analysis and consulting purposes.
- * 
+ *
  * Definitions, terms and conditions for using RGM Sources are stated by ArSysOp Source License version 1.0.
  * See http://arsysop.ru/licenses/rgm/ArSysOpSourceLicense-1.0.txt
- * 
- * RGM Sources are provided on "as is" basis. 
- * ArSysOp is not responsible for any damages, losses, legal prosecution 
- * or other consequences of any sort that using RGM Sources can cause to you 
+ *
+ * RGM Sources are provided on "as is" basis.
+ * ArSysOp is not responsible for any damages, losses, legal prosecution
+ * or other consequences of any sort that using RGM Sources can cause to you
  * (as an individual or Legal Entity), even if aware of such consequences.
- * 
+ *
 *******************************************************************************/
 use html_parser::{Dom, Element, Node};
 
@@ -41,6 +41,18 @@ fn only_divs(element: &Element) -> bool {
     String::from("div").eq(&element.name)
 }
 
+fn ignore_annexes(element: &Element) -> bool {
+    element
+        .children
+        .get(0)
+        .and_then(Node::element)
+        .map(|element| &element.children)
+        .and_then(|vec| vec.get(0))
+        .and_then(Node::element)
+        .filter(|element| element.classes.contains(&String::from("annexnum")))
+        .is_none()
+}
+
 fn toc(body: &Element) -> Vec<Section> {
     let children = &body.children;
     children
@@ -50,6 +62,7 @@ fn toc(body: &Element) -> Vec<Section> {
         .flat_map(|vec| vec.into_iter())
         .filter_map(&only_elements)
         .filter(|element| element.name == "div")
+        .filter(|element| ignore_annexes(element))
         .map(|element| chapter(element))
         .collect::<Vec<Section>>()
 }
