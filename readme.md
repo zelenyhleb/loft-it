@@ -11,8 +11,9 @@ It just helps us to avoid lots of copy-paste work on boilerplate integrity tests
 
 ### Usage
 
-Edit configuration under `configurations/` folder according to your working setup. Then run the tool:
-```cargo run configurations/cpp14```
+```cargo run <path_to_configuration>```
+
+Example YAML-based configurations can be found under `configurations/` folder. To use loft-it you will probably need to edit example configuration according to your working setup.
 
 ### License
 Copyright (c) 2018-2022 ArSysOp
